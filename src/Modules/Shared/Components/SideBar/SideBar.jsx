@@ -5,7 +5,7 @@ import logo from '../../../../assets/Images/Synergy.png'
 export default function SideBar() {
     return (
         <div className="sidebar-container h-full">
-            <Sidebar className="h-full sidebar bg-gray-500" >
+            <Sidebar className="h-full sidebar bg-gray-600" >
                 <img src={logo} alt="logo" className=" mt-5 mx-3" />
                 <Menu className="mt-5">
                     <MenuItem component={<Link to='home'></Link>} icon={<i className="fa-solid fa-house"></i>}> Home </MenuItem>
