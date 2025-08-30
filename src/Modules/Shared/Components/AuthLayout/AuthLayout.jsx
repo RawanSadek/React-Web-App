@@ -7,7 +7,7 @@ export default function AuthLayout() {
     <div className='authContainer relative'>
       <div className="auth-overlay h-screen ">
         <div className="flex min-h-screen justify-center items-center">
-          <div className='md:w-[35%]'>
+          <div className='sm:w-[70%] md:w-[50%] lg:w-[35%]'>
             <div className="logo flex justify-center">
               <img src={logo} alt="logo" className=''/>
             </div>
