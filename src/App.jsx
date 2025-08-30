@@ -2,19 +2,29 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import MasterLayout from './Modules/Shared/Components/MasterLayout/MasterLayout'
 import NotFound from './Modules/Shared/Components/NotFound/NotFound'
-import Dashboard from './Modules/MainModule/Dashboard/Dashboard'
+import Dashboard from './Modules/MainModule/Components/Dashboard/Dashboard'
 import { ToastContainer } from 'react-toastify'
+import AuthLayout from './Modules/Shared/Components/AuthLayout/AuthLayout'
+import Login from './Modules/Authentication/Components/Login/Login'
 
 function App() {
 
   const routes = createBrowserRouter([
     {
       path: '',
+      element: <AuthLayout />,
+      errorElement: <NotFound />,
+      children: [
+        { index: true, element: <Login /> },
+        { path: 'login', element: <Login /> },
+      ]
+    },
+    {
+      path: 'dashboard',
       element: <MasterLayout/>,
       errorElement: <NotFound/>,
       children:[
         {index: 'true', element: <Dashboard/>},
-        {index: 'dashboard', element: <Dashboard/>},
       ]
     }
   ])
