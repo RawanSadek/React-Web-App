@@ -86,6 +86,11 @@ npm run preview
 
 ---
 
+## 🌐 Live Demo
+https://synergy-app1.netlify.app/
+
+---
+
 ## 📧 Contact
 
 - Email: rawansadek267@gmail.com 
