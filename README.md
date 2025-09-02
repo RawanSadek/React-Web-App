@@ -30,9 +30,10 @@ React-Web-App/
 ├── public/
 ├── src/
 │   ├── components/     # Reusable UI components
-│   ├── pages/          # Dashboard and other pages
+│   ├── Modules/        # Dashboard, Authentication and other modules
 │   ├── store/          # Zustand state management
-│   ├── hooks/          # Custom hooks
+│   ├── assets/         # The used images
+│   ├── Services/       # Validations / API Endpoints
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -87,5 +88,5 @@ npm run preview
 
 ## 📧 Contact
 
-Email: rawansadek267@gmail.com 
-LinkedIn: www.linkedin.com/in/rawanahmedsadek
+- Email: rawansadek267@gmail.com 
+- LinkedIn: www.linkedin.com/in/rawanahmedsadek
