@@ -9,7 +9,6 @@ export const useStore = create((set) => ({
     const token = localStorage.getItem("token");
     const decodedData = jwtDecode(token);
     set({ loginData: decodedData });
-    console.log(loginData)
   },
   logout: () => {
     set({ loginData: null });

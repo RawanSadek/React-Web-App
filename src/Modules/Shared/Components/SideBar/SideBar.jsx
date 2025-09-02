@@ -1,6 +1,8 @@
 import { Menu, MenuItem } from 'react-pro-sidebar'
 import { Link } from 'react-router-dom'
 import logo from '../../../../assets/Images/Synergy.png'
+import expand from '../../../../assets/Images/expand-up-down-line.png'
+import homeIcon from '../../../../assets/Images/homeIcon.png'
 import {
   Sidebar,
   SidebarContent,
@@ -10,6 +12,10 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  SidebarHeader,
+  SidebarTrigger,
+  SidebarFooter,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import {
   Home,
@@ -20,130 +26,187 @@ import {
   BarChart3,
   Layers,
   HelpCircle,
+  ListCheck,
+  IdCard,
+  Tag,
+  WandSparkles,
+  CreditCard,
+  SlidersHorizontal,
+  List,
+  BadgeCheck,
+  ChevronsUpDown,
 } from "lucide-react"
+import { useStore } from '@/Store/AuthState/AuthState'
+import { useEffect } from 'react'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip'
 
 
 export default function SideBar() {
 
-   
-    return (
-    <Sidebar className="h-screen border-r bg-white">
-      <SidebarContent className="flex flex-col justify-between">
-        {/* Top Navigation */}
-        <div>
-          <SidebarGroup>
-            <SidebarGroupLabel>General</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Home className="h-4 w-4" />
-                      <span>Home</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+  let { loginData, getLoginData } = useStore();
 
-          <SidebarGroup>
-            <SidebarGroupLabel>Team Management</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Users className="h-4 w-4" />
-                      <span>Members</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Layers className="h-4 w-4" />
-                      <span>Departments</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Box className="h-4 w-4" />
-                      <span>Bulk Adjustments</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+  useEffect(() => {
+    getLoginData()
+  }, [])
 
-          <SidebarGroup>
-            <SidebarGroupLabel>Leads Management</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <BarChart3 className="h-4 w-4" />
-                      <span>Leads</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Tags className="h-4 w-4" />
-                      <span>Tags</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+  const { open, isMobile } = useSidebar()
 
-          <SidebarGroup>
-            <SidebarGroupLabel>Configuration</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Settings className="h-4 w-4" />
-                      <span>Settings</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
+  return (
+    <Sidebar collapsible='icon' className="h-screen bg-white !px-3">
+
+
+      
+
+      <SidebarHeader className="h-[12%] !pb-5 flex-row items-center bg-white">
+        <img src={logo} alt="Synergy Logo" className="w-10" />
+        {open && <ChevronsUpDown className='w-5 h-5 !px-0.5 cursor-pointer border rounded-sm text-gray-600 border-gray-300' />}
+
+
+
+
+      </SidebarHeader>
+
+      <SidebarContent className="flex flex-col bg-white">
+
+        {/* Home */}
+        {(open || isMobile) &&
+          <SidebarGroup className='bg-[#6728ee1f] !py-2 w-[90%] rounded-md flex-row items-center !px-3'>
+            <img src={homeIcon} alt="home" className='w-[8%]' />
+            <span className='text-sm font-medium text-[#6728ee] !ms-2'>Home</span>
           </SidebarGroup>
-        </div>
+        }
+
+
+        <SidebarGroup>
+          <SidebarGroupLabel className='text-[#b0b0b0] uppercase text-[12px]'>Team Management</SidebarGroupLabel>
+          <SidebarGroupContent className={`${(open || isMobile) && '!px-1.5'}`}>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <Users className="h-4 w-4" />
+                    <span className='text-[14px] '>Members</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <Layers className="h-4 w-4" />
+                    <span>Departments</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <ListCheck className="h-4 w-4" />
+                    <span>Bulk Adjustments</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className='text-[#b0b0b0] uppercase text-[12px] !mt-2'>Leads Management</SidebarGroupLabel>
+          <SidebarGroupContent className={`${(open || isMobile) && '!px-1.5'}`}>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <IdCard className="h-4 w-4" />
+                    <span>Leads</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <Tag className="h-4 w-4" />
+                    <span>Tags</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className='text-[#b0b0b0] uppercase text-[12px] !mt-2'>Brands & Products</SidebarGroupLabel>
+          <SidebarGroupContent className={`${(open || isMobile) && '!px-1.5'}`}>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <WandSparkles className="h-4 w-4" />
+                    <span>Customization</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <CreditCard className="h-4 w-4" />
+                    <span>Products</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className='text-[#b0b0b0] uppercase text-[12px] !mt-2'>Configuration</SidebarGroupLabel>
+          <SidebarGroupContent className={`${(open || isMobile) && '!px-1.5'}`}>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <SlidersHorizontal className="h-4 w-4" />
+                    <span>Integrations</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <Settings className="h-4 w-4" />
+                    <span>Settings</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className='text-[#b0b0b0] uppercase text-[12px] !mt-2'>Support</SidebarGroupLabel>
+          <SidebarGroupContent className={`${(open || isMobile) && '!px-1.5'}`}>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <List className="h-4 w-4" />
+                    <span>FAQs</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
         {/* Footer */}
-        <div className="p-4 border-t">
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href="#">
-                  <HelpCircle className="h-4 w-4" />
-                  <span>Support / FAQ</span>
-                </a>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
+        <SidebarFooter className="!mt-auto !py-2 border-t-2">
           <div className="mt-4 flex items-center gap-2">
-            <img
-              src="https://i.pravatar.cc/40?img=12"
-              alt="User"
-              className="h-8 w-8 rounded-full"
-            />
+            <img src={loginData?.image} alt="pp" className="h-7 w-7" />
             <div className="text-sm">
-              <p className="font-medium">Sophia Williams</p>
-              <p className="text-xs text-gray-500">sophia@alignui.com</p>
+              <p className="font-medium flex items-center">{loginData?.firstName} {loginData?.lastName} <BadgeCheck className="h-4 w-4 !ms-1 !mt-0.5 bg-blue-400 rounded-full text-white" /></p>
+              <p className="text-[11px] text-gray-500">{loginData?.email}</p>
             </div>
           </div>
-        </div>
+        </SidebarFooter>
       </SidebarContent>
     </Sidebar>
   )

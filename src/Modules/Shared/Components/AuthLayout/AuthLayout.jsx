@@ -4,7 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 export default function AuthLayout() {
 
   return (
-    <div className='authContainer relative'>
+    <div className='authContainer w-full relative'>
       <div className="auth-overlay h-screen ">
         <div className="flex min-h-screen justify-center items-center">
           <div className='sm:w-[70%] md:w-[50%] lg:w-[35%]'>

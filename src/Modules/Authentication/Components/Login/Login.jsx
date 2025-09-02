@@ -96,7 +96,7 @@ export default function Login() {
                     <Button
                         type="submit" disabled={form.formState.isSubmitting} className="w-full py-2 text-white font-semibold text-lg">
                         Login
-                        <img hidden={!form.formState.isSubmitting} src={loading} alt='loading' className="w-[5%]" />
+                        <img hidden={!form.formState.isSubmitting} src={loading} alt='loading' className="w-[3%]" />
                     </Button>
                 </form>
             </Form>

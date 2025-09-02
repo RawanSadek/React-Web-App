@@ -12,19 +12,19 @@ export default function Dashboard() {
 
 
   return (
-    <div className='h-full !p-5'>
+    <div className='h-full w-[97%] !p-5'>
       <div className="overflow-x-auto rounded-lg border bg-white shadow-sm h-[550px] overflow-y-auto">
-        <table className="w-full min-w-[800px] border-collapse">
+        <table className="w-full border-collapse">
           <thead className="bg-gray-50 text-left text-sm text-gray-500 rounded-md">
             <tr className="border !font-extralight">
               <th className="!px-2 !py-3">
                 <input type="checkbox" className="h-4 w-4 !me-2" />
                 Lead
               </th>
-              <th>Tags</th>
-              <th>Connected with</th>
-              <th>Date</th>
-              <th>Export</th>
+              <th className="!px-2 !py-3">Tags</th>
+              <th className="!px-2 !py-3">Connected with</th>
+              <th className="!px-2 !py-3">Date</th>
+              <th className="!px-2 !py-3">Export</th>
             </tr>
           </thead>
           <tbody className="divide-y text-sm text-gray-700">
@@ -46,7 +46,7 @@ export default function Dashboard() {
                 <td className="!px-2 !py-3">{user.tags.length == 0 ?
                   <span className="rounded-full bg-gray-100 px-3 py-1 text-[10px] text-gray-500 !p-1">No tags added</span>
                   : <>
-                    <span className="rounded-full bg-blue-200 px-3 py-1 text-xs text-blue-600 text-[10px] !p-1 !me-1 capitalize">{user.tags[0]}</span>
+                    <span className={`rounded-full px-3 py-1 text-xs ${user.tags[0]=='team'? 'text-blue-600  bg-blue-100' : user.tags[0]=='summit'? 'text-orange-600  bg-orange-100' : 'text-green-600  bg-green-100'} text-[10px] !py-1 !px-1.5 !me-1 capitalize`}>{user.tags[0]}</span>
                     {user.tags.length > 1 ? <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-500 text-[10px] !p-1">{`${user.tags.length - 1}+`}</span> : ''}
                   </>
                 }</td>
