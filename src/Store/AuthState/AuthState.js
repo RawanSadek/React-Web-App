@@ -1,8 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
-import { useState } from 'react'
 import { create } from 'zustand'
 
-// let [loginData, setLoginData] = useState(null);
 export const useStore = create((set) => ({
     loginData: null,
     getLoginData: () => {

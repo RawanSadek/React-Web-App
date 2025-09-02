@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useStore } from '@/Store/AuthState/AuthState'
 import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip';
-import { Bell, BellDot, Search } from 'lucide-react';
+import { Bell, Search } from 'lucide-react';
 
 export default function NavBar() {
 
@@ -12,8 +12,7 @@ export default function NavBar() {
     getLoginData()
   }, [])
 
-  const { open, state, isMobile } = useSidebar()
-console.log(isMobile)
+  const { open } = useSidebar()
 
   return (
     <>

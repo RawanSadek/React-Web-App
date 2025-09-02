@@ -14,7 +14,6 @@ export default function Login() {
     const navigate = useNavigate()
     const [showPass, setShowPass] = useState(false)
 
-    // setup form
     const form = useForm({
         defaultValues: {
             username: "",
@@ -31,7 +30,6 @@ export default function Login() {
             })
             localStorage.setItem("token", response.data.accessToken);
             getLoginData;
-            // console.log(loginData)
             toast.success("Welcome again!");
             navigate("/dashboard");
 

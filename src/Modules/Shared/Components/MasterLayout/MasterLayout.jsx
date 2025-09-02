@@ -8,16 +8,15 @@ export default function MasterLayout() {
         <>
             <SidebarProvider>
                 <div className="flex h-screen w-screen">
-                    {/* Sidebar */}
                     <SideBar />
 
-                    {/* Main content */}
                     <div className="flex-1 w-full flex flex-col">
                         <NavBar />
                         <div className="flex-1 w-full overflow-auto p-4">
                             <Outlet />
                         </div>
                     </div>
+                    
                 </div>
             </SidebarProvider>
         </>

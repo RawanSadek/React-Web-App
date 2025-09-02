@@ -1,7 +1,4 @@
-import { Menu, MenuItem } from 'react-pro-sidebar'
-import { Link } from 'react-router-dom'
 import logo from '../../../../assets/Images/Synergy.png'
-import expand from '../../../../assets/Images/expand-up-down-line.png'
 import homeIcon from '../../../../assets/Images/homeIcon.png'
 import {
   Sidebar,
@@ -13,19 +10,13 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarHeader,
-  SidebarTrigger,
   SidebarFooter,
   useSidebar,
 } from "@/components/ui/sidebar"
 import {
-  Home,
   Users,
   Settings,
-  Box,
-  Tags,
-  BarChart3,
   Layers,
-  HelpCircle,
   ListCheck,
   IdCard,
   Tag,
@@ -38,7 +29,6 @@ import {
 } from "lucide-react"
 import { useStore } from '@/Store/AuthState/AuthState'
 import { useEffect } from 'react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip'
 
 
 export default function SideBar() {
